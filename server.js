@@ -6,6 +6,19 @@ const fs = require('fs');
 const path = require('path');
 var admin = require("firebase-admin");
 
+// Enable CORS
+server.use(cors({
+  origin: 'http://localhost:5173',
+}));
+
+server.options('*', cors());
+
+server.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+  next();
+});
+
+
 const serviceAccount = {
     "type": "service_account",
     "project_id": "chakra-reservation",
@@ -28,8 +41,6 @@ admin.initializeApp({
 const server = express();
 const port = 3000;
 
-// Enable CORS
-server.use(cors());
 
 // Get the absolute path to the storage folder
 const storagePath = path.join(__dirname, 'storage');
