@@ -10,14 +10,7 @@ const server = express();
 const port = 3000;
 
 // Enable CORS for vercel
-server.use(
-  cors({
-    origin: '*',
-    methods: '*',
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  })
-);
+server.use(cors());
 
 const serviceAccount = {
     "type": "service_account",
