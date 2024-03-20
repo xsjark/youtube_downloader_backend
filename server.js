@@ -9,7 +9,7 @@ var admin = require("firebase-admin");
 const server = express();
 const port = 3000;
 
-// Enable CORS
+// Enable CORS for vercel
 server.use(
   cors({
     origin: '*',
