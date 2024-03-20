@@ -40,7 +40,7 @@ if (!fs.existsSync(storagePath)) {
 
 server.use(express.json());
 
-server.get('/download', async (req, res) => {
+server.post('/download', async (req, res) => {
     try {
       const idToken = req.headers.authorization?.split('Bearer ')[1];
       if (!idToken) {
