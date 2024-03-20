@@ -6,6 +6,9 @@ const fs = require('fs');
 const path = require('path');
 var admin = require("firebase-admin");
 
+const server = express();
+const port = 3000;
+
 // Enable CORS
 server.use(
   cors({
@@ -30,11 +33,6 @@ const serviceAccount = {
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
-
-
-const server = express();
-const port = 3000;
-
 
 // Get the absolute path to the storage folder
 const storagePath = path.join(__dirname, 'storage');
