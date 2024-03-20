@@ -7,17 +7,11 @@ const path = require('path');
 var admin = require("firebase-admin");
 
 // Enable CORS
-server.use(cors({
-  origin: 'http://localhost:5173',
-}));
-
-server.options('*', cors());
-
-server.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-  next();
-});
-
+server.use(
+  cors({
+    origin: "*",
+  })
+);
 
 const serviceAccount = {
     "type": "service_account",
