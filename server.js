@@ -12,7 +12,10 @@ const port = 3000;
 // Enable CORS
 server.use(
   cors({
-    origin: "*",
+    origin: '*',
+    methods: '*',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
   })
 );
 
